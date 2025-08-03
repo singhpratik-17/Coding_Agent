@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  orchestrator:
+    build: ./orchestrator
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./orchestrator/jobs:/app/jobs
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    depends_on:
+      - agent
+
+  agent:
+    build: ./agent
+    ports:
+      - "6080:6080"  # VNC
+      - "8888:8888"  # Jupyter
+    volumes:
+      - ./orchestrator/jobs:/app/context
+    environment:
+      - DISPLAY=:1
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5' 
