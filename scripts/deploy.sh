@@ -22,7 +22,7 @@ docker-compose down || true
 
 # Start services
 echo "▶️ Starting services..."
-docker-compose up -d
+docker compose up -d
 
 # Wait for services to be ready
 echo "⏳ Waiting for services to be ready..."
@@ -30,7 +30,7 @@ sleep 30
 
 # Test the deployment
 echo "🧪 Testing deployment..."
-if curl -f http://localhost:3001/status/test > /dev/null 2>&1; then
+if curl -f http://localhost:3000/status/test > /dev/null 2>&1; then
     echo "✅ Orchestrator is responding"
 else
     echo "⚠️ Orchestrator may not be ready yet"
@@ -39,7 +39,7 @@ fi
 echo "🎉 Deployment complete!"
 echo ""
 echo "📋 Access URLs:"
-echo "   Orchestrator: http://localhost:3001"
+echo "   Orchestrator: http://localhost:3000"
 echo "   VNC (GUI): http://localhost:6080"
 echo "   Jupyter: http://localhost:8888"
 echo ""
