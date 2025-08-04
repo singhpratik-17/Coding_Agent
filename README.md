@@ -18,7 +18,7 @@ A containerized coding agent system with sandboxing, orchestration layer, and co
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Orchestrator  │    │   Agent         │    │   Context       │
 │   (Express)     │───▶│   (Docker)      │───▶│   (Mounted)     │
-│   Port: 3001    │    │   VNC: 6080     │    │   /app/context  │
+│   Port: 3000    │    │   VNC: 6080     │    │   /app/context  │
 │                 │    │   Jupyter: 8888  │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
@@ -168,7 +168,7 @@ services:
   orchestrator:
     build: ./orchestrator
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
       - ./jobs:/app/jobs
   
@@ -186,17 +186,17 @@ services:
 # Todo app
 curl -X POST -H "Content-Type: application/json" \
   -d '{"task":"Build me a todo app"}' \
-  http://localhost:3001/schedule
+  http://localhost:3000/schedule
 
 # React app
 curl -X POST -H "Content-Type: application/json" \
   -d '{"task":"Create a React todo application"}' \
-  http://localhost:3001/schedule
+  http://localhost:3000/schedule
 
 # Python app
 curl -X POST -H "Content-Type: application/json" \
   -d '{"task":"Build a Python GUI todo app"}' \
-  http://localhost:3001/schedule
+  http://localhost:3000/schedule
 ```
 
 ## 📁 Project Structure
