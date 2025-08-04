@@ -52,7 +52,7 @@ node index.js
 ```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"task":"Build me a todo app"}' \
-  http://localhost:3001/schedule
+  http://localhost:3000/schedule
 ```
 
 ### 5. Access the Agent
