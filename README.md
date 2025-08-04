@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Coding Agent with Sandboxing & Orchestration
 
 A containerized coding agent system with sandboxing, orchestration layer, and context management. Built with Docker, Node.js/Express, and featuring VNC/Jupyter access for real-time interaction.
@@ -293,3 +294,6 @@ MIT License - see LICENSE file for details
 ---
 
 **Built with ❤️ for scalable, secure coding agent systems** 
+=======
+
+>>>>>>> a62659e24471931b7d03adf9f0888786f8c0338d
