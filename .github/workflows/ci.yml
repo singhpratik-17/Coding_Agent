@@ -40,7 +40,7 @@ jobs:
         docker compose up -d
         sleep 30
         curl -f http://localhost:3001/status/test || echo "Orchestrator not responding"
-        docker-compose down
+        docker compose down
 
   deploy:
     needs: test
